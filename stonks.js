@@ -1,6 +1,6 @@
 class Introduction extends Engine.Scene {
     setup() {
-        this.engine.setTitle("Stonks 4.0");
+        this.engine.setTitle("Stonks 5.0");
         this.engine.addAction("begin");
         this.engine.show("Get ready to trade!");
     }
@@ -20,6 +20,8 @@ class Trading extends Engine.Scene {
 
         this.engine.addAction("buy");
         this.engine.addAction("sell");
+        this.engine.addAction("cheat");
+
     }
 
 
@@ -48,6 +50,9 @@ class Trading extends Engine.Scene {
 
         if (this.cash > 2000) {
             this.engine.gotoScene(Victory);
+        }
+        if (action == "cheat") {
+            this.cash += 250;
         }
     }
 }
