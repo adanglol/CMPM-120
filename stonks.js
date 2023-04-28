@@ -15,9 +15,9 @@ class Trading extends Engine.Scene {
         this.stonks = 0;
         this.cash = 1000;
         this.price = 0;
-
+        // Add a timer
+        this.timeLeft = 60;
         this.engine.setTitle("Trade Stonks");
-
         this.engine.addAction("buy");
         this.engine.addAction("sell");
         this.engine.addAction("cheat");
@@ -33,8 +33,16 @@ class Trading extends Engine.Scene {
         this.engine.show(JSON.stringify({
             stonks: this.stonks + " STONK",
             cash: "$" + this.cash.toFixed(2),
-            price: "$" + this.price.toFixed(2)
+            price: "$" + this.price.toFixed(2),
+            time: this.timeLeft,
         }, null, 1));
+
+        console.log(time/1000)
+        this.timeLeft -= time;
+
+
+
+
     }
 
     handleAction(action) {
